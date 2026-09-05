@@ -24,9 +24,9 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 const CEO_TABS = [
   { id: 'dashboard',       path: '/dashboard',       label: 'Executive Dashboard', icon: LayoutDashboard },
   { id: 'analytics',       path: '/analytics',       label: 'Sales & Analytics',   icon: TrendingUp },
-  { id: 'finance-gl',      path: '/finance-gl',      label: 'General Ledger',       icon: BookOpen },
-  { id: 'finance-apar',    path: '/finance-apar',    label: 'AP & AR',              icon: Receipt },
-  { id: 'finance-reports', path: '/finance-reports', label: 'Financial Reports',    icon: BarChart3 },
+  // { id: 'finance-gl',      path: '/finance-gl',      label: 'General Ledger',       icon: BookOpen },
+  // { id: 'finance-apar',    path: '/finance-apar',    label: 'AP & AR',              icon: Receipt },
+  // { id: 'finance-reports', path: '/finance-reports', label: 'Financial Reports',    icon: BarChart3 },
   { id: 'inventory',       path: '/inventory',       label: 'Inventory',            icon: Package },
   { id: 'scm-vendors',     path: '/scm-vendors',     label: 'Vendors',              icon: Store },
   { id: 'scm-warehouses',  path: '/scm-warehouses',  label: 'Warehouses',           icon: Building2 },

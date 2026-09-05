@@ -11,8 +11,8 @@ export default function HRModule({ token, currentUser }) {
   const subTabs = [
     { id: 'profiles', label: 'Staff Profiles & HR', icon: Users },
     { id: 'attendance', label: 'Time & Attendance', icon: Clock },
-    { id: 'payroll_wizard', label: 'Payroll Wizard', icon: Calculator },
-    { id: 'payslips', label: 'Payroll & Payslips', icon: FileText }
+    // { id: 'payroll_wizard', label: 'Payroll Wizard', icon: Calculator },
+    // { id: 'payslips', label: 'Payroll & Payslips', icon: FileText }
   ];
 
   return (
