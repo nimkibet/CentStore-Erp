@@ -660,42 +660,7 @@ export default function CEODashboard({ token, onNavigateTab, analyticsMode }) {
           }
         />
 
-        {/* Card 3: Liquid Cash Position */}
-        <KpiCard
-          title="Liquid Cash Position"
-          value={fmt(metrics.liquidCash)}
-          sub="COA Account #1000 • Cash & Bank Balances"
-          badge="GL 1000"
-          badgeColor="slate"
-          icon={Wallet}
-          accentColor="slate"
-          onClick={() => onNavigateTab && onNavigateTab('finance-gl')}
-          extraContent={
-            <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
-              <span>Primary Operating Reserve</span>
-              <span className="text-slate-700 font-bold">General Ledger →</span>
-            </div>
-          }
-        />
-
-        {/* Card 4: AR vs AP Working Capital */}
-        <KpiCard
-          title="AR vs AP Working Capital"
-          value={`AR ${fmtShort(metrics.totalAR)} / AP ${fmtShort(metrics.totalAP)}`}
-          sub={`Net Float: ${metrics.totalAR >= metrics.totalAP ? '+' : ''}${fmt(metrics.totalAR - metrics.totalAP)}`}
-          badge={metrics.totalAR >= metrics.totalAP ? 'Net Positive' : 'Net Obligation'}
-          badgeColor={metrics.totalAR >= metrics.totalAP ? 'emerald' : 'amber'}
-          icon={Scale}
-          accentColor="amber"
-          onClick={() => onNavigateTab && onNavigateTab('finance-apar')}
-          extraContent={
-            <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
-              <span>{metrics.unpaidArCount} Open Receivables</span>
-              <span className="text-slate-300">•</span>
-              <span>{metrics.unpaidApCount} Unpaid Bills</span>
-            </div>
-          }
-        />
+        {/* Card 3 & 4: HIDDEN FOR RETAIL DEMO */}
 
         {/* Card 5: Inventory Valuation */}
         <KpiCard

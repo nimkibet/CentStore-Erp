@@ -12,9 +12,11 @@ export default function Sidebar({ activeTab, setActiveTab, user, onLogout, isOpe
 
   const allTabs = [
     { id: 'dashboard', label: 'Executive Dashboard', icon: LayoutDashboard, permission: 'tab:dashboard' },
-    { id: 'finance-gl', label: 'General Ledger & COA', icon: BookOpen, permission: 'finance:read' },
-    { id: 'finance-apar', label: 'AP & AR Management', icon: Receipt, permission: 'finance:read' },
-    { id: 'finance-reports', label: 'Financial Reports', icon: BarChart3, permission: 'finance:read' },
+    // --- COMMENTED OUT FOR RETAIL DEMO ---
+    // { id: 'finance-gl', label: 'General Ledger & COA', icon: BookOpen, permission: 'finance:read' },
+    // { id: 'finance-apar', label: 'AP & AR Management', icon: Receipt, permission: 'finance:read' },
+    // { id: 'finance-reports', label: 'Financial Reports', icon: BarChart3, permission: 'finance:read' },
+    // -------------------------------------
     { id: 'inventory', label: 'Inventory', icon: Package, permission: 'inventory:read' },
     { id: 'scm-vendors', label: 'Vendors', icon: Store, permission: 'scm:read' },
     { id: 'scm-warehouses', label: 'Warehouses', icon: Building2, permission: 'scm:read' },
