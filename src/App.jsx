@@ -6,13 +6,42 @@ import FinanceModule from './modules/finance/FinanceModule';
 import CashierModule from './modules/sales/CashierModule';
 import WebAdminModule from './modules/webadmin/WebAdminModule';
 import HRModule from './modules/hr/HRModule';
+import AppShell from './modules/core/AppShell';
+import { Users, Clock, ShieldCheck } from 'lucide-react';
 import { ToastProvider } from './modules/core/ToastContext';
+
+const HR_TABS = [
+  { id: 'dashboard', path: '/dashboard', label: 'HCM Portal', icon: ShieldCheck },
+  { id: 'staff', path: '/staff', label: 'Staff Directory', icon: Users },
+  { id: 'attendance', path: '/attendance', label: 'Time & Attendance', icon: Clock },
+];
+
+function HRAppModule({ token, user, onLogout }) {
+  return (
+    <AppShell
+      user={user}
+      onLogout={onLogout}
+      moduleColor="violet"
+      moduleName="Human Capital Management"
+      moduleIcon={ShieldCheck}
+      tabs={HR_TABS}
+    >
+      <Routes>
+        <Route path="/dashboard" element={<HRModule token={token} currentUser={user} />} />
+        <Route path="/staff" element={<HRModule token={token} currentUser={user} />} />
+        <Route path="/attendance" element={<HRModule token={token} currentUser={user} />} />
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </AppShell>
+  );
+}
 
 const MODULE_MAP = {
   CEO:      CEOModule,
   Finance:  FinanceModule,
   Cashier:  CashierModule,
   WebAdmin: WebAdminModule,
+  HR:       HRAppModule,
 };
 
 export default function App() {
@@ -85,7 +114,7 @@ function AppRoutes() {
 
 function ProtectedRoute({ user, token, onLogout }) {
   const role = user?.role || '';
-  const ModuleComponent = MODULE_MAP[role];
+  const ModuleComponent = MODULE_MAP[role] || MODULE_MAP[role?.toUpperCase?.()] || (role?.toLowerCase?.().includes('hr') ? MODULE_MAP.HR : null);
 
   if (!ModuleComponent) {
     return (
